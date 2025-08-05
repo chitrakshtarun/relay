@@ -10,7 +10,7 @@ const queryClient = new QueryClient();
 export default function RootLayout() {
   // TODO: Reenable this once you add users.
   // const { success, error } = useMigrations(db, migrations);
-  useDrizzleStudio(SQLite.openDatabaseSync("persistentchat.db"));
+  useDrizzleStudio(SQLite.openDatabaseSync("relaychat.db"));
 
   return (
     <GestureHandlerRootView>

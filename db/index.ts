@@ -1,4 +1,4 @@
 import { drizzle } from "drizzle-orm/expo-sqlite";
 import * as SQLite from "expo-sqlite";
 
-export const db = drizzle(SQLite.openDatabaseSync("persistentchat.db"));
+export const db = drizzle(SQLite.openDatabaseSync("relaychat.db"));
