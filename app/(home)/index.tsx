@@ -1,20 +1,26 @@
-import { LegendList } from "@legendapp/list";
-import { Text } from "react-native";
-
-type Item = { id: string; title: string };
-
-const items: Item[] = Array.from({ length: 1000 }, (_, i) => ({
-  id: (i + 1).toString(),
-  title: `Item ${i + 1}`,
-}));
+/* 
+TODO: 
+- Fix Scrolling to match Twitch chat
+- Fix Styling
+*/
+import ChatMessage from "@/components/chat-message";
+import { useWebSocket } from "@/providers/websocket-provider";
+import { useRef } from "react";
+import { FlatList } from "react-native";
 
 const HomePage = () => {
+  const { messages } = useWebSocket();
+  const flatListRef = useRef(null);
+
   return (
-    <LegendList
-      data={items}
-      renderItem={({ item }: { item: Item }) => <Text className="px-6 text-xl">{item.title}</Text>}
-      keyExtractor={(item: Item) => item.id}
-      recycleItems
+    <FlatList
+      ref={flatListRef}
+      className="px-6"
+      showsVerticalScrollIndicator={false}
+      contentInsetAdjustmentBehavior="automatic"
+      data={messages}
+      renderItem={({ item }) => <ChatMessage {...item} />}
+      keyExtractor={(item) => item.id}
     />
   );
 };
