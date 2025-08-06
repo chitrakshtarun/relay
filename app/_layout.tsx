@@ -6,8 +6,7 @@ import * as SQLite from "expo-sqlite";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 const queryClient = new QueryClient();
-
-export default function RootLayout() {
+const RootLayout = () => {
   // TODO: Reenable this once you add users.
   // const { success, error } = useMigrations(db, migrations);
   useDrizzleStudio(SQLite.openDatabaseSync("relaychat.db"));
@@ -15,8 +14,10 @@ export default function RootLayout() {
   return (
     <GestureHandlerRootView>
       <QueryClientProvider client={queryClient}>
-        <Stack />
+        <Stack screenOptions={{ headerShown: false }} />
       </QueryClientProvider>
     </GestureHandlerRootView>
   );
-}
+};
+
+export default RootLayout;
