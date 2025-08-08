@@ -1,11 +1,12 @@
-import screenOptions from "@/constants/screen-options";
+import { useScreenOptions } from "@/hooks/use-screen-options";
 import { useWebSocket } from "@/providers/websocket-provider";
 import { Stack, useRouter } from "expo-router";
 import { Button } from "react-native";
-const HomeLayout = () => {
-  const { connectToServer, disconnect, isConnected, connectionState } = useWebSocket();
 
+const HomeLayout = () => {
   const router = useRouter();
+  const screenOptions = useScreenOptions();
+  const { connectToServer, disconnect, isConnected, connectionState } = useWebSocket();
 
   const handlePress = () => {
     if (isConnected) {

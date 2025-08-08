@@ -1,8 +1,3 @@
-/* 
-TODO: 
-- Fix Scrolling to match Twitch chat
-- Fix Styling
-*/
 import TwitchChat from "@/components/twitch-chat";
 import { useWebSocket } from "@/providers/websocket-provider";
 import { SafeAreaView } from "react-native-safe-area-context";
