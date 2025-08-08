@@ -16,7 +16,6 @@ const RootLayout = () => {
   // const { success, error } = useMigrations(db, migrations);
   const { colorScheme } = useColorScheme();
   const screenOptions = useScreenOptions();
-  console.log(colorScheme);
   useDrizzleStudio(SQLite.openDatabaseSync("relaychat.db"));
 
   return (
