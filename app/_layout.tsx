@@ -22,7 +22,7 @@ const RootLayout = () => {
             <Stack>
               <Stack.Screen name="(home)" options={{ headerShown: false }} />
               <Stack.Screen
-                name="settings"
+                name="settings/index"
                 options={{
                   ...screenOptions,
                   title: "Settings",
