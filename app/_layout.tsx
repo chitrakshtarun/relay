@@ -1,3 +1,4 @@
+import screenOptions from "@/constants/screen-options";
 import "@/global.css";
 import { WebSocketProvider } from "@/providers/websocket-provider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -18,7 +19,17 @@ const RootLayout = () => {
       <KeyboardProvider>
         <QueryClientProvider client={queryClient}>
           <WebSocketProvider>
-            <Stack screenOptions={{ headerShown: false }} />
+            <Stack>
+              <Stack.Screen name="(home)" options={{ headerShown: false }} />
+              <Stack.Screen
+                name="settings"
+                options={{
+                  ...screenOptions,
+                  title: "Settings",
+                  headerBackTitle: "Back",
+                }}
+              />
+            </Stack>
           </WebSocketProvider>
         </QueryClientProvider>
       </KeyboardProvider>

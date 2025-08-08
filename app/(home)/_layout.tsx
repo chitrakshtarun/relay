@@ -1,12 +1,11 @@
-import { useScreenOptions } from "@/hooks/use-screen-options";
+import screenOptions from "@/constants/screen-options";
 import { useWebSocket } from "@/providers/websocket-provider";
-import { Stack } from "expo-router";
+import { Stack, useRouter } from "expo-router";
 import { Button } from "react-native";
-
 const HomeLayout = () => {
   const { connectToServer, disconnect, isConnected, connectionState } = useWebSocket();
 
-  const screenOptions = useScreenOptions("Relay");
+  const router = useRouter();
 
   const handlePress = () => {
     if (isConnected) {
@@ -30,9 +29,18 @@ const HomeLayout = () => {
   return (
     <Stack
       screenOptions={{
+        title: "Relay",
         ...screenOptions,
+        headerLargeTitle: false,
         headerRight: () => (
           <Button title={getButtonText()} onPress={handlePress} disabled={connectionState.status === "connecting"} />
+        ),
+        headerLeft: () => (
+          <Button
+            title={"Settings"}
+            onPress={() => router.push("/settings")}
+            disabled={connectionState.status === "connecting"}
+          />
         ),
       }}
     />
