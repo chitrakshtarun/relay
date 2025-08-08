@@ -1,4 +1,4 @@
-import ChatMessage from "@/components/twitch-chat/chat-message";
+import ChatMessage from "@/components/chat-message";
 import type { ChatMessage as ChatMessageType } from "@/providers/websocket-provider/types";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { FlatList, LayoutChangeEvent, NativeScrollEvent, NativeSyntheticEvent } from "react-native";
