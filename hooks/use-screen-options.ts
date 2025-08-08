@@ -6,7 +6,6 @@ export const useScreenOptions = (title?: string): NativeStackNavigationOptions =
   return {
     title,
     headerTransparent: true,
-    headerLargeTitle: true,
     headerBlurEffect: "prominent",
     headerShadowVisible: true,
     headerLargeTitleShadowVisible: false,
