@@ -3,25 +3,17 @@ TODO:
 - Fix Scrolling to match Twitch chat
 - Fix Styling
 */
-import ChatMessage from "@/components/chat-message";
+import TwitchChat from "@/components/twitch-chat";
 import { useWebSocket } from "@/providers/websocket-provider";
-import { useRef } from "react";
-import { FlatList } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const HomePage = () => {
   const { messages } = useWebSocket();
-  const flatListRef = useRef(null);
 
   return (
-    <FlatList
-      ref={flatListRef}
-      className="px-6"
-      showsVerticalScrollIndicator={false}
-      contentInsetAdjustmentBehavior="automatic"
-      data={messages}
-      renderItem={({ item }) => <ChatMessage {...item} />}
-      keyExtractor={(item) => item.id}
-    />
+    <SafeAreaView className="flex flex-1">
+      <TwitchChat messages={messages} />
+    </SafeAreaView>
   );
 };
 

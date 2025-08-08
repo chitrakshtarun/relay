@@ -10,10 +10,12 @@ const ChatMessage = ({ username, message, timestamp }: ChatMessageProps) => {
   return (
     <View className="py-1">
       <View className="flex-row items-start">
-        <Text className="mr-2 font-bold text-black">{username}:</Text>
-        <Text className="flex-1 text-black">{message}</Text>
+        <Text className="flex-">
+          <Text className="font-bold">{username}: </Text>
+          {message}
+        </Text>
       </View>
-      <Text className="ml-1 text-xs text-black">{timestamp.toLocaleTimeString()}</Text>
+      <Text className="text-xs">{timestamp.toLocaleTimeString()}</Text>
     </View>
   );
 };
